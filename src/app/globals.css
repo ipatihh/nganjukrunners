@@ -1,0 +1,21 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  --color-sky-500: #3699ff;
+  --color-sky-600: #1f87f5;
+}
+
+:root {
+  --background: #fbfbfb;
+  --foreground: #171717;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}

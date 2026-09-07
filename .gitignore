@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+dist
+.env*.local
+.vercel
+
+# OS files
+.DS_Store
