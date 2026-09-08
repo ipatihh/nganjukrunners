@@ -2,8 +2,32 @@
 
 @theme {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --color-sky-500: #3699ff;
-  --color-sky-600: #1f87f5;
+
+  /*
+   * Brand blue — WCAG-AA accessible ramp.
+   * The old brand blue (#3699ff) failed contrast: white text on it was only
+   * 2.8:1 and small blue text on the near-white canvas was 2.8:1 too.
+   *
+   * sky-500 : default brand blue. 4.6-4.8:1 on white / #fbfbfb — safe for
+   *           body text, eyebrow labels, links, and as a button fill with
+   *           white text.
+   * sky-600 : hover / pressed / emphasis. ~6.8:1.
+   * sky-700 : deep accent (rarely needed).
+   *
+   * See docs/UI-UX-GUIDELINES.md before changing these.
+   */
+  --color-sky-500: #1773cf;
+  --color-sky-600: #135ba8;
+  --color-sky-700: #0f4a88;
+
+  /* Surfaces — used to give the page vertical rhythm.
+   * canvas      : default page background
+   * canvas-alt  : alternating band (kept very close to canvas on purpose)
+   * surface     : cards / raised elements
+   */
+  --color-canvas: #fbfbfb;
+  --color-canvas-alt: #ffffff;
+  --color-surface: #ffffff;
 }
 
 :root {
@@ -18,4 +42,18 @@ body {
   height: 100%;
   background-color: var(--background);
   color: var(--foreground);
+}
+
+/* Respect users who ask for less motion: neutralise autoplay carousels,
+ * hover lifts, and long transitions site-wide. Components also read
+ * prefers-reduced-motion in JS where they need to stop an interval. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

@@ -27,7 +27,7 @@ export default function CollaborationList() {
                 <CheckCircle className="w-3.5 h-3.5" />
                 {collab.statusText}
               </span>
-              <span className="text-[10px] text-neutral-500 font-bold bg-neutral-50 border border-neutral-100 px-3.5 py-1.5 rounded-full flex items-center gap-1">
+              <span className="text-[10px] text-neutral-600 font-bold bg-neutral-50 border border-neutral-100 px-3.5 py-1.5 rounded-full flex items-center gap-1">
                 <Calendar className="w-3.5 h-3.5 text-neutral-600" />
                 {collab.dateText}
               </span>
@@ -37,11 +37,11 @@ export default function CollaborationList() {
               {collab.title}
             </h3>
             
-            <p className="text-sm text-neutral-500 leading-relaxed mb-8">
+            <p className="text-sm text-neutral-600 leading-relaxed mb-8">
               {collab.description}
             </p>
 
-            <div className="space-y-3 bg-[#fbfbfb] p-5 rounded-2xl border border-neutral-100 mb-8">
+            <div className="space-y-3 bg-canvas p-5 rounded-2xl border border-neutral-100 mb-8">
               <div className="text-xs text-neutral-600 flex justify-between gap-4">
                 <span className="text-neutral-600 flex items-center gap-1">
                   <Clock className="w-3.5 h-3.5" /> Waktu:

@@ -2,15 +2,26 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const asideRef = useRef<HTMLElement>(null);
   useFocusTrap(isOpen, asideRef);
+
+  // Give the fixed header a shadow + blur once the page scrolls, so it stays
+  // separated from white content underneath it.
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   const navLinks = [
     { href: "/", label: "Beranda" },
@@ -36,17 +47,25 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-[#fbfbfb] border-b border-neutral-100">
+    <header
+      className={`fixed top-0 left-0 w-full z-50 border-b transition-colors duration-200 ${
+        isScrolled
+          ? "bg-canvas/85 backdrop-blur-md border-neutral-200 shadow-sm"
+          : "bg-canvas border-neutral-100"
+      }`}
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-        
-        {/* Logo Section - Dibuat mengalir natural tanpa trik posisi absolute */}
+
+        {/* Logo — cropped horizontal lockup, served locally from /public. */}
         <div className="flex items-center">
-          <Link href="/" className="relative block h-14 w-44 overflow-hidden select-none">
-            <img
-              src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHjzL_QGVBwbpdzBvyuinTas4Y1tIKarpWZc-20i0TFZcYPeR4LUprCuuejmtU_fanHFb2s_0cfQc5MyqHjD5PCmww3GLat5cu3JuKcOS2AUFAL9nGSGVhaHJB1ulxP6yygOWlxDIC_4w-ug6SigiJkRHFiOccbq5V9Wy893UViVR3AiUSUtgFzYicouk/s6250/NJR%20Shape%20Besar.png"
-              alt="Nganjuk Runners Logo"
-              style={{ height: "130px", width: "auto", maxWidth: "none" }}
-              className="absolute left-[-20px] top-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
+          <Link href="/" className="block select-none" aria-label="Nganjuk Runners — Beranda">
+            <Image
+              src="/assets/img/brand/njr-logo.png"
+              alt="Nganjuk Runners"
+              width={838}
+              height={312}
+              priority
+              className="h-9 w-auto transition-transform duration-300 hover:scale-105 sm:h-10"
             />
           </Link>
         </div>
@@ -61,8 +80,8 @@ export default function Header() {
                 href={link.href}
                 className={`font-semibold text-sm transition-colors duration-200 ${
                   isActive
-                    ? "text-sky-500 border-b-2 border-sky-500 pb-1"
-                    : "text-neutral-500 hover:text-sky-500"
+                    ? "text-sky-600 border-b-2 border-sky-500 pb-1"
+                    : "text-neutral-600 hover:text-sky-600"
                 }`}
               >
                 {link.label}
@@ -89,7 +108,7 @@ export default function Header() {
 
       {/* Mobile Menu Sidebar */}
       {isOpen && (
-        <div className="fixed inset-0 z-40 bg-neutral-900/10 backdrop-blur-sm md:hidden" onClick={() => setIsOpen(false)} />
+        <div className="fixed inset-0 z-40 bg-neutral-900/40 backdrop-blur-sm md:hidden" onClick={() => setIsOpen(false)} />
       )}
       <aside
         ref={asideRef}
@@ -97,7 +116,7 @@ export default function Header() {
         aria-modal="true"
         aria-label="Menu navigasi"
         inert={!isOpen}
-        className={`fixed top-0 right-0 h-full w-64 bg-[#fbfbfb] z-50 shadow-2xl flex flex-col p-8 md:hidden transition-transform duration-300 ease-in-out ${
+        className={`fixed top-0 right-0 h-full w-64 bg-canvas z-50 shadow-2xl flex flex-col p-8 md:hidden transition-transform duration-300 ease-in-out ${
           isOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
@@ -117,7 +136,7 @@ export default function Header() {
                 href={link.href}
                 onClick={() => setIsOpen(false)}
                 className={`font-bold text-lg border-b border-neutral-100 pb-3 transition-colors ${
-                  isActive ? "text-sky-500 border-sky-500" : "text-neutral-500 hover:text-sky-500"
+                  isActive ? "text-sky-600 border-sky-500" : "text-neutral-600 hover:text-sky-600"
                 }`}
               >
                 {link.label}

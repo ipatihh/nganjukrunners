@@ -2,15 +2,11 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { X, Heart, Shield, FileText } from "lucide-react";
 import { useFocusTrap } from "@/hooks/useFocusTrap";
 
 type PolicyType = "disclaimer" | "privacy" | "terms";
-
-const LOGO_CONFIG = {
-  src: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiHjzL_QGVBwbpdzBvyuinTas4Y1tIKarpWZc-20i0TFZcYPeR4LUprCuuejmtU_fanHFb2s_0cfQc5MyqHjD5PCmww3GLat5cu3JuKcOS2AUFAL9nGSGVhaHJB1ulxP6yygOWlxDIC_4w-ug6SigiJkRHFiOccbq5V9Wy893UViVR3AiUSUtgFzYicouk/s6250/NJR%20Shape%20Besar.png",
-  alt: "Nganjuk Runners Logo",
-};
 
 export default function Footer() {
   const [modalType, setModalType] = useState<PolicyType | null>(null);
@@ -59,20 +55,21 @@ export default function Footer() {
   }, [modalType]);
 
   return (
-    <footer className="bg-[#fbfbfb] text-neutral-500 pt-12 pb-12 px-4 sm:px-6 lg:px-8 mt-auto border-t border-neutral-100">
+    <footer className="bg-canvas text-neutral-600 pt-12 pb-12 px-4 sm:px-6 lg:px-8 mt-auto border-t border-neutral-100">
       <div className="max-w-7xl mx-auto flex flex-col items-center gap-8 text-center md:flex-row md:justify-between md:items-start md:text-left">
-        
+
         {/* Kontainer Kiri: Logo & Deskripsi Komunitas */}
         <div className="flex flex-col items-center md:items-start gap-4">
-          <Link href="/" className="relative block h-14 w-44 overflow-hidden select-none">
-            <img
-              src={LOGO_CONFIG.src}
-              alt={LOGO_CONFIG.alt}
-              style={{ height: "130px", width: "auto", maxWidth: "none" }}
-              className="absolute left-[-20px] top-1/2 -translate-y-1/2 transition-transform duration-300 hover:scale-105"
+          <Link href="/" className="block select-none" aria-label="Nganjuk Runners — Beranda">
+            <Image
+              src="/assets/img/brand/njr-logo.png"
+              alt="Nganjuk Runners"
+              width={838}
+              height={312}
+              className="h-10 w-auto transition-transform duration-300 hover:scale-105"
             />
           </Link>
-          <p className="text-neutral-500 text-sm max-w-sm leading-relaxed">
+          <p className="text-neutral-600 text-sm max-w-sm leading-relaxed">
             Komunitas lari terbesar di Nganjuk. Mari ciptakan jejak sehat di setiap sudut Kota Angin bersama kami.
           </p>
         </div>
@@ -162,28 +159,28 @@ export default function Footer() {
         <div className="flex justify-center gap-6 mb-6 flex-wrap">
           <button
             onClick={() => handleOpenModal("disclaimer")}
-            className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 hover:text-sky-500 transition-colors duration-200"
+            className="text-[10px] font-bold uppercase tracking-widest text-neutral-600 hover:text-sky-600 transition-colors duration-200"
           >
             Disclaimer
           </button>
           <button
             onClick={() => handleOpenModal("privacy")}
-            className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 hover:text-sky-500 transition-colors duration-200"
+            className="text-[10px] font-bold uppercase tracking-widest text-neutral-600 hover:text-sky-600 transition-colors duration-200"
           >
             Privacy Policy
           </button>
           <button
             onClick={() => handleOpenModal("terms")}
-            className="text-[10px] font-bold uppercase tracking-widest text-neutral-500 hover:text-sky-500 transition-colors duration-200"
+            className="text-[10px] font-bold uppercase tracking-widest text-neutral-600 hover:text-sky-600 transition-colors duration-200"
           >
             Terms of Service
           </button>
         </div>
 
-        <p className="text-xs text-neutral-500 leading-relaxed">
-          © {new Date().getFullYear()} <span className="font-bold text-neutral-900">Nganjuk Runners</span>. All Rights Reserved.{" "}
+        <p className="text-xs text-neutral-600 leading-relaxed">
+          © {new Date().getFullYear()} <span className="font-bold text-neutral-900">Nganjuk Runners</span>. Hak cipta dilindungi.{" "}
           <br className="sm:hidden" />
-          Developed by{" "}
+          Dikembangkan oleh{" "}
           <a
             href="https://kembar.in"
             target="_blank"
@@ -231,7 +228,7 @@ export default function Footer() {
                 {policyData[modalType].icon}
                 <span>{policyData[modalType].title}</span>
               </div>
-              <p className="text-neutral-500 text-sm leading-relaxed">
+              <p className="text-neutral-600 text-sm leading-relaxed">
                 {policyData[modalType].text}
               </p>
             </div>

@@ -93,7 +93,7 @@ function MemberCard({ member, getBadgeStyle }: { member: Member; getBadgeStyle: 
           >
             {member.jabatan}
           </div>
-          <div className="text-neutral-900 font-bold text-base mb-1.5 leading-tight group-hover:text-sky-500 transition-colors">
+          <div className="text-neutral-900 font-bold text-base mb-1.5 leading-tight group-hover:text-sky-600 transition-colors">
             {member.nama}
           </div>
           <div className="text-neutral-600 text-xs italic mb-4 line-clamp-2 leading-relaxed">
@@ -107,7 +107,7 @@ function MemberCard({ member, getBadgeStyle }: { member: Member; getBadgeStyle: 
             <span className="text-neutral-600 font-medium">{member.wa || "-"}</span>
           </div>
           {member.instagram && (
-            <span className="text-sky-500 font-black text-[10px] tracking-wide block mt-1 hover:underline">
+            <span className="text-sky-600 font-black text-[10px] tracking-wide block mt-1 hover:underline">
               @{member.instagram}
             </span>
           )}
@@ -184,7 +184,7 @@ export default function MemberList() {
     return (
       <div className="flex flex-col items-center justify-center py-32 text-neutral-600">
         <Loader2 className="w-10 h-10 animate-spin text-sky-500 mb-4" />
-        <p className="text-sm font-semibold tracking-wide uppercase text-neutral-500">
+        <p className="text-sm font-semibold tracking-wide uppercase text-neutral-600">
           Menyusun barisan pelari...
         </p>
       </div>
@@ -193,7 +193,7 @@ export default function MemberList() {
 
   if (error) {
     return (
-      <div className="text-center py-20 text-neutral-500 border border-dashed border-neutral-200 rounded-3xl">
+      <div className="text-center py-20 text-neutral-600 border border-dashed border-neutral-200 rounded-3xl">
         <p className="font-bold">Gagal memuat data anggota.</p>
         <p className="text-xs mt-2 text-neutral-600">
           Silakan periksa koneksi internet Anda atau coba muat kembali halaman.
@@ -223,7 +223,7 @@ export default function MemberList() {
             className={`px-5 py-2.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
               activeTab === "all"
                 ? "bg-sky-500 text-white border-sky-500"
-                : "bg-white text-neutral-500 border-neutral-200 hover:text-sky-500 hover:border-sky-500"
+                : "bg-white text-neutral-600 border-neutral-200 hover:text-sky-600 hover:border-sky-500"
             }`}
           >
             Semua
@@ -233,7 +233,7 @@ export default function MemberList() {
             className={`px-5 py-2.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
               activeTab === "official"
                 ? "bg-sky-500 text-white border-sky-500"
-                : "bg-white text-neutral-500 border-neutral-200 hover:text-sky-500 hover:border-sky-500"
+                : "bg-white text-neutral-600 border-neutral-200 hover:text-sky-600 hover:border-sky-500"
             }`}
           >
             Anggota
@@ -243,7 +243,7 @@ export default function MemberList() {
             className={`px-5 py-2.5 rounded-full text-[10px] font-extrabold uppercase tracking-wider transition-all duration-200 border cursor-pointer ${
               activeTab === "atlet"
                 ? "bg-sky-500 text-white border-sky-500"
-                : "bg-white text-neutral-500 border-neutral-200 hover:text-sky-500 hover:border-sky-500"
+                : "bg-white text-neutral-600 border-neutral-200 hover:text-sky-600 hover:border-sky-500"
             }`}
           >
             Atlet

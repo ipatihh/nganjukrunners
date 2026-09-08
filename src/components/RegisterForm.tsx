@@ -125,12 +125,12 @@ export default function RegisterForm() {
           <User className="w-7 h-7" />
         </div>
         <span className="block text-neutral-600 font-extrabold text-[10px] tracking-[0.2em] uppercase mb-2">
-          Join the Movement
+          Gabung Bersama
         </span>
         <h2 className="text-2xl md:text-3xl font-black text-neutral-950 tracking-tight uppercase italic">
           Registrasi <span className="text-neutral-500 font-normal">Anggota</span>
         </h2>
-        <p className="text-neutral-500 mt-2 text-sm leading-relaxed max-w-sm mx-auto">
+        <p className="text-neutral-600 mt-2 text-sm leading-relaxed max-w-sm mx-auto">
           Lengkapi data dirimu di bawah ini untuk menjadi bagian resmi dari Nganjuk Runners Community.
         </p>
       </div>
@@ -141,7 +141,7 @@ export default function RegisterForm() {
             <Check className="w-8 h-8" />
           </div>
           <h3 className="text-xl font-bold text-neutral-950">Pendaftaran Berhasil!</h3>
-          <p className="text-neutral-500 text-sm max-w-sm mx-auto leading-relaxed">
+          <p className="text-neutral-600 text-sm max-w-sm mx-auto leading-relaxed">
             Selamat bergabung di Nganjuk Runners. Data profil Anda sedang diproses ke database kami.
           </p>
           <button
@@ -179,7 +179,7 @@ export default function RegisterForm() {
               value={formData.nama_lengkap}
               onChange={handleInputChange}
               placeholder="Sesuai kartu identitas"
-              className="w-full px-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
+              className="w-full px-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
             />
           </div>
 
@@ -196,7 +196,7 @@ export default function RegisterForm() {
                   value={formData.whatsapp}
                   onChange={handleInputChange}
                   placeholder="Contoh: 08123456789"
-                  className="w-full pl-12 pr-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
+                  className="w-full pl-12 pr-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
                 />
                 <Phone className="w-4 h-4 absolute left-5 top-1/2 -translate-y-1/2 text-neutral-600" />
               </div>
@@ -210,7 +210,7 @@ export default function RegisterForm() {
                 required
                 value={formData.gender}
                 onChange={handleInputChange}
-                className="w-full px-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 cursor-pointer font-medium"
+                className="w-full px-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 cursor-pointer font-medium"
               >
                 <option value="Laki-laki">Laki-laki</option>
                 <option value="Perempuan">Perempuan</option>
@@ -222,9 +222,9 @@ export default function RegisterForm() {
             <label className="block text-neutral-700 font-bold text-xs uppercase tracking-wider mb-2">
               Jabatan Keanggotaan
             </label>
-            <div className="w-full px-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm text-neutral-800 font-medium flex items-center justify-between">
+            <div className="w-full px-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm text-neutral-800 font-medium flex items-center justify-between">
               <span>Official Member</span>
-              <span className="text-[9px] font-bold uppercase tracking-wider text-neutral-500">
+              <span className="text-[9px] font-bold uppercase tracking-wider text-neutral-600">
                 Jabatan lain belum dibuka
               </span>
             </div>
@@ -253,7 +253,7 @@ export default function RegisterForm() {
                 value={formData.instagram}
                 onChange={handleInputChange}
                 placeholder="nganjukrunners (Tanpa @)"
-                className="w-full pl-12 pr-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
+                className="w-full pl-12 pr-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 font-medium"
               />
               <svg
                 viewBox="0 0 24 24"
@@ -281,7 +281,7 @@ export default function RegisterForm() {
               value={formData.bio_singkat}
               onChange={handleInputChange}
               placeholder="Tulis kutipan lari atau moto olahraga favoritmu..."
-              className="w-full px-5 py-4 bg-[#fbfbfb] border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 resize-none font-medium"
+              className="w-full px-5 py-4 bg-canvas border border-neutral-200 rounded-xl text-sm focus:outline-none focus:border-neutral-900 transition-all text-neutral-800 placeholder-neutral-400 resize-none font-medium"
             />
           </div>
 
