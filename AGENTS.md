@@ -17,3 +17,10 @@ Key gotchas:
   WCAG contrast; do not lighten it.
 - Blogger images: always `bloggerImage(url)` from `src/lib/images.ts` + `unoptimized`.
 - Use `bg-canvas` / `text-neutral-600`, not `bg-[#fbfbfb]` / `text-neutral-500`.
+
+# Merchandise (KEMBAR.IN)
+
+`/katalog` dijual lewat core KEMBAR.IN — katalog TIDAK disimpan di repo ini. Baca
+[`docs/INTEGRASI_KEMBARIN.md`](docs/INTEGRASI_KEMBARIN.md) sebelum menyentuh
+`src/lib/kembarin/`, `src/app/api/pesan`, atau `src/app/katalog`. Jangan menulis harga,
+produk, atau ukuran di kode; jangan meneruskan body mentah browser ke core.

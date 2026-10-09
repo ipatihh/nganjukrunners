@@ -25,7 +25,7 @@ export default function Header() {
 
   const navLinks = [
     { href: "/", label: "Beranda" },
-    { href: "/katalog", label: "Katalog Jersey" },
+    { href: "/katalog", label: "Merchandise" },
     { href: "/event", label: "Event" },
     { href: "/kolaborasi", label: "Kolaborasi" },
     { href: "/anggota", label: "Anggota" },
