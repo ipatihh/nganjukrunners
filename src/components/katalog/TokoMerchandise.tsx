@@ -8,6 +8,7 @@ import type { Katalog, Produk } from "@/lib/kembarin/katalog";
 import { type BarisKeranjang, hitungRincian, kunciBaris, totalBarang } from "@/lib/kembarin/keranjang";
 import { PESAN_BELUM_PASTI, tafsirkanResponsPesan } from "@/lib/kembarin/kontrakPesanan";
 import { simpanPesananTerakhir } from "@/lib/kembarin/statusPesanan";
+import { TAUTAN_WHATSAPP_MERCH, WHATSAPP_MERCH } from "@/data/kontak";
 
 const rupiah = (nilai: number) => `Rp ${nilai.toLocaleString("id-ID")}`;
 
@@ -257,6 +258,16 @@ export default function TokoMerchandise({ katalog }: { katalog: Katalog }) {
               </div>
               <p className="text-xs leading-relaxed text-neutral-600">
                 {pengambilan ? `Barang diambil di ${pengambilan}.` : "Lokasi dan jadwal pengambilan dikirim lewat email saat barang siap."}
+                {" "}Luar kota? Setelah membayar, hubungi{" "}
+                <a
+                  href={TAUTAN_WHATSAPP_MERCH}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold text-neutral-900 underline underline-offset-2 hover:text-sky-600"
+                >
+                  WhatsApp {WHATSAPP_MERCH}
+                </a>{" "}
+                untuk pengiriman; ongkir dibayar terpisah.
               </p>
             </div>
           )}

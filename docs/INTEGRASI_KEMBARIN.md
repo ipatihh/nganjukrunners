@@ -26,6 +26,10 @@ gateway bayar            → /katalog/status?order=KBR-…               tujuan 
 - Kode pesanan + token status disimpan di localStorage peramban tempat memesan (tanpa data
   pribadi), untuk halaman `/katalog/status`.
 - Email konfirmasi, QR pengambilan, dan kabar "Siap Diambil" dikirim core, bukan situs ini.
+- Pengiriman ke luar kota diurus manual lewat WhatsApp panitia (`src/data/kontak.ts`), di luar
+  sistem pemesanan: yang dibayar online hanya barang dan biaya layanan; alamat, ongkir, dan resi
+  tidak tercatat di KEMBAR.IN. Setelah paket dikirim, panitia menandai barangnya "diambil" di
+  dashboard supaya QR pengambilan tidak bisa dipakai lagi.
 
 ## Kode
 

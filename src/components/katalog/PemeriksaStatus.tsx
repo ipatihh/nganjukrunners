@@ -15,6 +15,7 @@ import {
   tafsirkanResponsStatus,
   urlPaymentReturn,
 } from "@/lib/kembarin/statusPesanan";
+import { TAUTAN_WHATSAPP_MERCH, WHATSAPP_MERCH } from "@/data/kontak";
 
 // localStorage lewat useSyncExternalStore: render server memakai null, browser nilai sebenarnya.
 const berlangganan = (cb: () => void) => {
@@ -121,6 +122,11 @@ export default function PemeriksaStatus({ kodeKembali, eventCode }: { kodeKembal
         <Baris ikon={<CheckCircle2 className="h-5 w-5 text-green-600" />} judul="Pembayaran terverifikasi">
           {order.totalAmount !== undefined ? `Total ${rupiah(order.totalAmount)}. ` : ""}
           Konfirmasi dan QR pengambilan dikirim ke email pemesan.
+          {" "}Luar kota? Hubungi panitia di{" "}
+          <a href={TAUTAN_WHATSAPP_MERCH} target="_blank" rel="noopener noreferrer" className={tautan}>
+            WhatsApp {WHATSAPP_MERCH}
+          </a>{" "}
+          untuk pengiriman.
         </Baris>
       );
     } else if (order.status === "pending") {
