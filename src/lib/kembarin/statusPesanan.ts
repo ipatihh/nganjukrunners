@@ -30,7 +30,7 @@ export type ResponsStatus =
  * ini harus host yang sama dengan halaman katalog.
  */
 export function urlKembaliPembayaran(): string {
-  const asal = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://nganjukrunners.or.id";
+  const asal = process.env.NEXT_PUBLIC_SITE_URL?.trim() || "https://www.nganjukrunners.or.id";
   return `${new URL(asal).origin}/katalog/status`;
 }
 

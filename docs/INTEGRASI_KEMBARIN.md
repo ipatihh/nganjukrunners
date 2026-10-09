@@ -42,7 +42,7 @@ gateway bayar            → /katalog/status?order=KBR-…               tujuan 
 ## Persiapan sebelum tayang
 
 1. Di KEMBAR.IN: event jenis Merchandise, produk + ukuran + harga di Edit Detail, matikan
-   Coming Soon, isi **Tiket dijual di** = `https://nganjukrunners.or.id/katalog`.
+   Coming Soon, isi **Tiket dijual di** = `https://www.nganjukrunners.or.id/katalog` (pakai `www`: alamat tanpa www dialihkan ke www, dan core hanya memulangkan pembeli ke host yang sama persis).
 2. Buat secret acak 32+ karakter. Core: tambahkan `nganjukrunners:<secret>` ke
    `TRUSTED_PARTNER_KEYS`. Situs ini: isi `KEMBAR_IN_PARTNER_KEY` dengan secret yang sama.
 3. Isi `KEMBAR_IN_MERCH_EVENT_CODE` (lihat `.env.example`).

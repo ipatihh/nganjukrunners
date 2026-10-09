@@ -126,7 +126,7 @@ export async function POST(req: NextRequest) {
       eventCode: katalog.eventCode,
       sessionId: sessionId.toLowerCase(),
       buyer: { nama, email, whatsapp },
-      participants: bangunParticipants(keranjang.keranjang, { nama, email }),
+      participants: bangunParticipants(keranjang.keranjang, { nama, email }, new Map(katalog.produk.map((p) => [p.id, p.nama]))),
       // Gateway dipilih core dari pengaturan event.
       paymentGateway: "auto",
       // Setelah bayar, gateway memulangkan pembeli ke /katalog/status situs ini (core §4b).

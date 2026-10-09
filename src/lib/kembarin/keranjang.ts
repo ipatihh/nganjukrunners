@@ -93,14 +93,25 @@ export function validasiKeranjang(
 /**
  * Satu barang = satu entri `participants[]` di core (PARTNER_INTEGRATION.md §4c). Nama dan
  * email pemesan disalin ke tiap barang; ukuran dikirim di `customFields.size`.
+ *
+ * `customFields.kategori` = nama produk WAJIB ikut: core menyisipkan kolom form "Kategori"
+ * (wajib) setiap kali daftar produk disimpan di dashboard, dan menolak baris tanpa isian itu.
+ * Produk tetap dicocokkan lewat `ticketTypeId`; kategori hanya memenuhi kolom form.
  */
-export function bangunParticipants(keranjang: readonly BarisKeranjang[], pemesan: { nama: string; email: string }) {
+export function bangunParticipants(
+  keranjang: readonly BarisKeranjang[],
+  pemesan: { nama: string; email: string },
+  namaProduk: ReadonlyMap<number, string>,
+) {
   return keranjang.flatMap((baris) =>
     Array.from({ length: baris.jumlah }, () => ({
       nama: pemesan.nama,
       email: pemesan.email,
       ticketTypeId: baris.produkId,
-      customFields: baris.ukuran ? { size: baris.ukuran } : {},
+      customFields: {
+        kategori: namaProduk.get(baris.produkId) ?? "",
+        ...(baris.ukuran ? { size: baris.ukuran } : {}),
+      },
     })),
   );
 }
