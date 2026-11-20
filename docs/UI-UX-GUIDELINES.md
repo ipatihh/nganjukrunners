@@ -167,6 +167,12 @@ images: `alt=""`.
   Telegram" banner whenever no event is `status: "open"`. When a real upcoming
   event exists, add it to `src/data/events.ts` with `status: "open"` and a
   working `link`; the banner hides itself.
+- **Every event in `src/data/events.ts` is also SEO data.** Fill `startDate`
+  (ISO, `+07:00`), `venue`, `organizer` (the real organizer) and
+  `byNganjukRunners` (only when NJR handles race management/collab). Events with
+  `startDate` become `SportsEvent` JSON-LD on `/` (open ones) and `/event` (all),
+  built in `src/lib/seo.ts`. No date known → leave `startDate` empty; never guess.
+  When registration closes, flip `status` to `"closed"` so the `Offer` disappears.
 - Do **not** grey-out / `grayscale` past events — it made the section look dead.
   The "Past Event" badge + muted button already communicate status.
 - Copy is **Indonesian**. Eyebrow labels included (`Rekam Jejak`, `Perjalanan

@@ -4,6 +4,7 @@ import { getKatalog } from "@/lib/kembarin/katalog";
 
 export const metadata: Metadata = {
   title: "Merchandise",
+  alternates: { canonical: "/katalog" },
   description: "Pesan merchandise resmi komunitas Nganjuk Runners. Pembayaran online, barang diambil di lokasi panitia.",
 };
 

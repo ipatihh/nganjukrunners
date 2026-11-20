@@ -69,6 +69,7 @@ export default function EventList() {
                 alt={`Poster ${event.title}`}
                 fill
                 unoptimized
+                referrerPolicy="no-referrer"
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 400px"
                 className="object-cover w-full h-full transition-transform duration-700 hover:scale-105"
               />

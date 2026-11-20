@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import RegisterForm from "@/components/RegisterForm";
 
 export const metadata: Metadata = {
-  title: "Registrasi Anggota - Nganjuk Runners",
+  title: "Registrasi Anggota",
+  alternates: { canonical: "/registrasi" },
   description: "Formulir pendaftaran anggota resmi Nganjuk Runners Community.",
 };
 

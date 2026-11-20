@@ -8,9 +8,48 @@ export interface EventItem {
   statusText: string;
   link?: string;
   poster: string;
+  /**
+   * Data untuk JSON-LD SportsEvent (src/lib/seo.ts). Event TANPA `startDate` tidak
+   * ditulis ke data terstruktur — jangan isi tanggal tebakan. Salin dari halaman
+   * event di kembar.in (`/api/public/events/{kode}`) atau poster resmi.
+   */
+  startDate?: string; // ISO 8601 dengan zona WIB, mis. "2027-01-17T05:30:00+07:00"
+  venue?: string; // nama tempat start/finish
+  organizer?: { name: string; url?: string }; // penyelenggara sebenarnya
+  /** true bila Nganjuk Runners ikut menangani (race management/kolaborasi). */
+  byNganjukRunners?: boolean;
 }
 
 export const events: EventItem[] = [
+  {
+    id: "smadarun-2027",
+    title: "SMADARUN 2027",
+    year: "2027",
+    location: "SMA Negeri 2 Nganjuk",
+    description: "Lari 5KM kategori Pelajar dan Umum, Minggu 17 Januari 2027, diselenggarakan SMA Negeri 2 Nganjuk.",
+    status: "open",
+    statusText: "Pendaftaran Dibuka",
+    link: "https://www.smadarun.id/daftar",
+    poster: "https://lh3.googleusercontent.com/d/1TcVX2XQ8a4iasfPHnCBGP2PtBRHYWlIj",
+    startDate: "2027-01-17T05:30:00+07:00",
+    venue: "SMA Negeri 2 Nganjuk",
+    organizer: { name: "SMA Negeri 2 Nganjuk", url: "https://www.smadarun.id" },
+  },
+  {
+    id: "brotoseno-run-2027",
+    title: "BROTOSENO RUN 2027",
+    year: "2027",
+    location: "Alun-Alun Nganjuk",
+    description: "Kategori 5K dan 10K Open, Minggu 31 Januari 2027. Race management oleh Nganjuk Runners.",
+    status: "open",
+    statusText: "Pendaftaran Dibuka",
+    link: "https://kembar.in/events/brotoseno",
+    poster: "https://lh3.googleusercontent.com/d/1GBNGRP4YsaiftDtZY8mHF8yyJDU_hxou",
+    startDate: "2027-01-31T05:00:00+07:00",
+    venue: "Alun-Alun Nganjuk",
+    organizer: { name: "BROTOSENO GOLD", url: "https://www.instagram.com/brotosenorun" },
+    byNganjukRunners: true,
+  },
   {
     id: "adhyaksa",
     title: "ADHYAKSA NIGHT RUN 2026",
@@ -19,8 +58,12 @@ export const events: EventItem[] = [
     description: "Event Adhyaksa Night Run 2026 Memperingati Ulang Tahun Kejaksaan dan berkolaborasi dengan Nganjuk Runners.",
     status: "closed",
     statusText: "Past Event",
-    link: "https://kembar.in/adhyaksa/",
+    link: "https://kembar.in/events/adhyaksa",
     poster: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgw_jX9-ScVi0t_eRcuwnLFakMC_ww3l2D2V55iBa5YrZgAkWYulTPA-9WZExCotH-AplqdTSyVypn4Wp6u4DB63xJMQ9iitqrvFbCke3X-Xvc738qhYvn3k2-1s6TTSs4woBEFmBherfcQ1aFejVfC-5mjOwZtb7VY8OuVnbrsULisWnsgppDsyoyUVHk/s1350/WhatsApp%20Image%202026-08-05%20at%2021.18.43.jpeg",
+    startDate: "2026-09-05T18:30:00+07:00",
+    venue: "Alun-Alun Nganjuk",
+    organizer: { name: "PWI Nganjuk", url: "https://www.instagram.com/pwi_nganjuk_official/" },
+    byNganjukRunners: true,
   },
   {
     id: "run-fest-2026",

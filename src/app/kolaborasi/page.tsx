@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import CollaborationList from "@/components/CollaborationList";
 
 export const metadata: Metadata = {
-  title: "Kolaborasi Komunitas - Nganjuk Runners",
+  title: "Kolaborasi Komunitas",
+  alternates: { canonical: "/kolaborasi" },
   description: "Rangkaian kegiatan resmi Nganjuk Runners bersama para mitra dan komunitas.",
 };
 

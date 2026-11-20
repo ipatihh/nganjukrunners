@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { META_MITRA, jsonLdSitus, serialisasiJsonLd } from "@/lib/seo";
+import { META_MITRA, SITE_DESC, SITE_NAME, SITE_TITLE, SITE_URL, jsonLdSitus, serialisasiJsonLd } from "@/lib/seo";
 
 // Inter is a variable font — do NOT pass a `weight` array (that forces static
 // instances and ships more CSS). The variable file covers 100–900.
@@ -13,33 +13,38 @@ const inter = Inter({
   variable: "--font-sans",
 });
 
-const SITE_URL = "https://nganjukrunners.or.id";
-const SITE_NAME = "Nganjuk Runners";
-const SITE_DESC =
-  "Komunitas lari terbesar di Nganjuk. Mari ciptakan jejak sehat di setiap sudut Kota Angin bersama kami.";
-
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Nganjuk Runners - Lari Bareng, Seduluran Selawase",
+    default: SITE_TITLE,
     template: "%s - Nganjuk Runners",
   },
   description: SITE_DESC,
   applicationName: SITE_NAME,
-  keywords: ["Nganjuk Runners", "komunitas lari Nganjuk", "lari", "running", "Kota Angin"],
+  keywords: [
+    "Nganjuk Runners",
+    "komunitas lari Nganjuk",
+    "event lari Nganjuk",
+    "jadwal lari Nganjuk",
+    "fun run Nganjuk",
+    "Kota Angin",
+  ],
+  // Canonical TIDAK dipasang di sini (akan diwarisi semua halaman); tiap halaman
+  // memasang `alternates.canonical` sendiri.
   // Favicon + touch icon come from src/app/icon.png and src/app/apple-icon.png
   // (Next file conventions). The OG/Twitter card comes from src/app/opengraph-image.tsx.
   openGraph: {
     type: "website",
     locale: "id_ID",
-    url: SITE_URL,
+    // Tanpa `url`: nilai di root layout diwarisi semua halaman dan membuat setiap
+    // halaman mengaku sebagai beranda.
     siteName: SITE_NAME,
-    title: "Nganjuk Runners - Lari Bareng, Seduluran Selawase",
+    title: SITE_TITLE,
     description: SITE_DESC,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nganjuk Runners - Lari Bareng, Seduluran Selawase",
+    title: SITE_TITLE,
     description: SITE_DESC,
   },
   // Pelengkap bagi crawler lain; sinyal utama untuk Google adalah JSON-LD (lib/seo.ts).

@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import MemberList from "@/components/MemberList";
 
 export const metadata: Metadata = {
-  title: "Daftar Anggota - Nganjuk Runners",
+  title: "Daftar Anggota",
+  alternates: { canonical: "/anggota" },
   description: "Mengenal lebih dekat anggota kita yang berdedikasi tinggi dalam memajukan olahraga lari di Nganjuk.",
 };
 
