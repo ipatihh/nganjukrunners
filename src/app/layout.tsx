@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { META_MITRA, jsonLdSitus, serialisasiJsonLd } from "@/lib/seo";
 
 // Inter is a variable font — do NOT pass a `weight` array (that forces static
 // instances and ships more CSS). The variable file covers 100–900.
@@ -41,6 +42,8 @@ export const metadata: Metadata = {
     title: "Nganjuk Runners - Lari Bareng, Seduluran Selawase",
     description: SITE_DESC,
   },
+  // Pelengkap bagi crawler lain; sinyal utama untuk Google adalah JSON-LD (lib/seo.ts).
+  other: { ...META_MITRA },
 };
 
 export default function RootLayout({
@@ -51,6 +54,10 @@ export default function RootLayout({
   return (
     <html lang="id" className={`${inter.variable} antialiased`}>
       <body className="min-h-screen flex flex-col bg-canvas text-neutral-900 font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: serialisasiJsonLd(jsonLdSitus) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-sky-600 focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:text-sm focus:shadow-lg"

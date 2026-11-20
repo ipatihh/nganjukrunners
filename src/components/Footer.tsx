@@ -187,7 +187,7 @@ export default function Footer() {
             rel="noopener noreferrer"
             className="font-bold text-neutral-900 hover:underline hover:text-sky-500 transition-colors duration-200"
           >
-            kembar.in
+            PT KEMBAR INOVASI INDONESIA
           </a>
         </p>
       </div>
